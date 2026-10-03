@@ -26,6 +26,9 @@ El service provider se descubre automáticamente. Publica la configuración si n
 
 ```bash
 php artisan vendor:publish --tag=whatsapp-config
+
+# o por provider
+php artisan vendor:publish --provider="Romeldev\\WhatsApp\\WhatsAppServiceProvider"
 ```
 
 ## Configuración

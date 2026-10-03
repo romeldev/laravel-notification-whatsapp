@@ -18,9 +18,11 @@ class WhatsAppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->publishes([
-            __DIR__.'/../config/whatsapp.php' => config_path('whatsapp.php'),
-        ], 'whatsapp-config');
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/whatsapp.php' => config_path('whatsapp.php'),
+            ], 'whatsapp-config');
+        }
 
         Notification::extend('whatsapp', function ($app): WhatsAppChannel {
             return $app->make(WhatsAppChannel::class);

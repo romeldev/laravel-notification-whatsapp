@@ -1,0 +1,65 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "romeldev/laravel-notification-whatsapp",
+    "description": "Agnostic WhatsApp notification channel for Laravel with pluggable providers (Evolution API, WAHA, Cloud API).",
+    "keywords": [
+        "laravel",
+        "notifications",
+        "whatsapp",
+        "evolution-api",
+        "waha",
+        "channel"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.3",
+        "ext-mbstring": "*",
+        "giggsey/libphonenumber-for-php": "^9.0",
+        "illuminate/http": "^12.0|^13.0",
+        "illuminate/notifications": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.27",
+        "orchestra/testbench": "^11.0",
+        "pestphp/pest": "^5.0",
+        "pestphp/pest-plugin-laravel": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Romeldev\\WhatsApp\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Romeldev\\WhatsApp\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "lint": "pint --parallel",
+        "lint:check": "pint --parallel --test",
+        "analyse": "phpstan analyse --memory-limit=1G"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Romeldev\\WhatsApp\\WhatsAppServiceProvider"
+            ]
+        },
+        "branch-alias": {
+            "dev-main": "0.1.x-dev"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        },
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
